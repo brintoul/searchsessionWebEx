@@ -1,0 +1,37 @@
+{
+
+  "manifest_version": 2,
+  "name": "SearchSession",
+  "version": "1.0",
+
+  "description": "Allows related searches to be grouped together in a session.",
+
+  "background": {
+      "scripts": ["ss-background-script.js"]
+  },
+
+  "permissions": [
+      "webRequest",
+      "storage"
+  ],
+
+  "browser_action": {
+      "browser_style" : true,
+      "default_popup": "popup/new_session.html",
+      "default_icon": {
+          "16": "icons/start_session.png"
+      }
+  },
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.controlledthinking.com/*"],
+      "js": ["search_session.js"]
+    }
+  ]
+
+}
